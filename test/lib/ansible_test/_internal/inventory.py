@@ -124,6 +124,9 @@ def create_windows_inventory(args: EnvironmentConfig, path: str, target_hosts: l
 def create_network_inventory(args: EnvironmentConfig, path: str, target_hosts: list[HostProfile]) -> None:
     """Create and return inventory for use in target network integration tests."""
     first = target_hosts[0]
+    import q
+    q("Inside Inventory")
+    q(path)
 
     if isinstance(first, NetworkInventoryProfile):
         if args.explain:

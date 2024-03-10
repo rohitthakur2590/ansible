@@ -38,6 +38,7 @@ from ...host_configs import (
     NetworkInventoryConfig,
     NetworkRemoteConfig,
 )
+import q
 
 
 def command_network_integration(args: NetworkIntegrationConfig) -> None:
@@ -69,7 +70,9 @@ def command_network_integration(args: NetworkIntegrationConfig) -> None:
             'Use --platform to provision resources and generate an inventory file.\n'
             'See also inventory template: %s' % (inventory_path, template_path)
         )
-
+    q("===========================================================================")
+    q(args)
+    q(inventory_path)
     check_inventory(args, inventory_path)
     delegate_inventory(args, inventory_path)
 
